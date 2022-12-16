@@ -1,2 +1,2 @@
-export * from "./connection";
+export * from "./connection.js";
 export { querys } from "./querys";
