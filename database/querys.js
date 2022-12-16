@@ -1,0 +1,37 @@
+export const querys = {
+  /*
+  getAllProducts: "SELECT TOP(500) * FROM [webstore].[dbo].[Products]",
+  getProducById: "SELECT * FROM Products Where Id = @Id",
+  addNewProduct:
+    "INSERT INTO [webstore].[dbo].[Products] (name, description, quantity) VALUES (@name,@description,@quantity);",
+  deleteProduct: "DELETE FROM [webstore].[dbo].[Products] WHERE Id= @Id",
+  getTotalProducts: "SELECT COUNT(*) FROM webstore.dbo.Products",
+  updateProductById:
+    "UPDATE [webstore].[dbo].[Products] SET Name = @name, Description = @description, Quantity = @quantity WHERE Id = @id",
+  */
+  getAllRoles: "SELECT * FROM Rol",
+  getUserByEmail: "SELECT * FROM Usuario WHERE correo_electronico=@email",
+  getUserById: "SELECT * FROM Usuario WHERE IdUsuario=@id",
+  getDepartamento: "SELECT * FROM Departamento",
+  getEstadoSolicitud: "SELECT * FROM Estado",
+  getEstadoUsuario:"SELECT * FROM EstadoUsuario ",
+  getDocumento: "SELECT * FROM Documento",
+  getDistrito:"SELECT * FROM Distrito",
+  getProvincia:"SELECT * FROM Provincia",
+  getTipoSolicitud:"SELECT * FROM Tipo",
+  getClasificacion:"SELECT * FROM Clasificacion",
+  getImpacto: "SELECT * FROM Impacto",
+  getPrioridad:"SELECT * FROM Prioridad",
+  getSLA:"SELECT * FROM SLA",
+  getUsuarios:"SELECT * FROM Usuario",
+  updateUser:"UPDATE Usuario SET IdEstadoUsuario=@IdEstadoUsuario, IdRol=@IdRol WHERE IdUsuario=@IdUsuario",
+  addNewUser: "INSERT INTO Usuario (nombre,ape_paterno,ape_materno,telefono,fecha_registro,correo_electronico,contrasenia,num_documento,IdEstadoUsuario,IdDocumento,IdRol) VALUES (@nombre,@ape_paterno,@ape_materno,@telefono,@fecha_registro,@correo_electronico,@contrasenia,@num_documento,@IdEstadoUsuario,@IdDocumento,@IdRol)",
+  addNewSolicitud: "INSERT INTO Solicitud (Solicitud,DetalleSolicitud,FechaRegistro,IdUsuario,Imagen,SolicitudAsociada) VALUES (@Solicitud,@DetalleSolicitud,@FechaRegistro,@IdUsuario,@Imagen,@SolicitudAsociada)",
+  getSolicitudById:"SELECT * FROM Solicitud Where Codigo=@Id",
+  getSolicitud:"SELECT * FROM Solicitud",
+  updateSolicitudById:"UPDATE [dbo].[Solicitud] SET Solicitud = @Solicitud, DetalleSolicitud = @DetalleSolicitud,IdUsuario=@IdUsuario WHERE IdSolicitud=@IdSolicitud",
+  getDetalleSolicitudAdmin: "SELECT S.Codigo,S.DetalleSolicitud,S.FechaRegistro,S.IdUsuario,DS.IdUsuario AS Responsable,U.nombre,T.Tipo,E.Estado,DS.IdTipoSolicitud,DS.IdClasificacion FROM DetalleSolicitud AS DS inner join Solicitud as S on DS.IdSolicitud=S.IdSolicitud INNER JOIN Usuario as U ON S.IdUsuario=U.IdUsuario INNER JOIN Tipo AS T ON DS.IdTipoSolicitud=T.IdTipoSolicitud INNER JOIN Estado as E ON DS.IdEstadoSolicitud=E.IdEstadoSolicitud",
+  getDetalleSolicitudByCode: "SELECT * FROM Solicitud AS S inner join DetalleSolicitud AS DS ON S.IdSolicitud = DS.IdSolicitud WHERE S.Codigo=@codigo",
+  addDetalleSolicitud: "INSERT INTO DetalleSolicitud (IdSolicitud, IdTipoSolicitud, IdClasificacion, IdImpacto, IdPrioridad, IdUsuario, IdSLA, FechaActualizacion, DetalleSolucion, FechaSolucion, IdEstadoSolicitud) VALUES (@id, @categoria, @clasificacion, @impacto, @prioridad, @responsable, @sla, @fechaActualizacion, @detalleSolucion, @fechaSolucion, @estado)",
+  updateDetalleSolicitud: "UPDATE DetalleSolicitud SET IdTipoSolicitud=@categoria, IdClasificacion=@clasificacion, IdImpacto=@impacto, IdEstadoSolicitud=@estado, IdPrioridad=@prioridad, IdUsuario=@responsable, IdSLA=@sla, FechaActualizacion=@fechaActualizacion, DetalleSolucion=@detalleSolucion, FechaSolucion=@fechaSolucion WHERE IdDetalleSolicitud=@id",
+};
